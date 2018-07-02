@@ -7,6 +7,7 @@ import android.widget.TextView;
 public class SecondActivity extends AppCompatActivity {
 
     TextView welcomeText;
+    String myString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,8 @@ public class SecondActivity extends AppCompatActivity {
 
         welcomeText.postDelayed(new Runnable() {
             public void run() {
-                welcomeText.setText("Hello Gaoussou.");
+                welcomeText.setText(getResources().getString(R.string.test_string));
+                //welcomeText.setText("Hello Gaoussou.");
             }
         }, 5000);
     }
