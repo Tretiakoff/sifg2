@@ -1,4 +1,4 @@
-package com.example.tretiakoff.sifg2.model;
+package com.example.tretiakoff.sifg2.api.model;
 
 import java.util.ArrayList;
 
