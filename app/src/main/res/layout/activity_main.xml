@@ -7,10 +7,10 @@
     tools:context="com.example.tretiakoff.sifg2.activity.MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/chatBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/chatBtn"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="68dp" />
 
@@ -18,7 +18,7 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/checkUpBtn"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="165dp" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/newOrderBtn"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="271dp" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/followedBtn"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="373dp" />
 
@@ -42,7 +42,8 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/getSpecialistBtn"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="446dp" />
+
 </android.support.constraint.ConstraintLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">sifg2</string>
+    <string name="chatBtn">J\'ai un problème</string>
+    <string name="checkUpBtn">Checkup, certificat</string>
+    <string name="newOrderBtn">Renouvellement d\'ordonnance</string>
+    <string name="followedBtn">Suivi de traitement</string>
+    <string name="getSpecialistBtn">Trouver un spécialiste</string>
 </resources>
