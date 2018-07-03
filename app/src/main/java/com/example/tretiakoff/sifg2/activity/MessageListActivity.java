@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
 import com.example.tretiakoff.sifg2.adapter.MessageListAdapter;
@@ -14,14 +15,25 @@ import com.example.tretiakoff.sifg2.model.User;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class MessageListActivity extends AppCompatActivity {
+public class MessageListActivity  extends AppCompatActivity implements MessageListAdapter.OnTopRatedClickListener {
 
     private MessageListAdapter mMessageAdapter;
+    private TextView message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("STATUS", "NAISSANCE");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
+        RecyclerView mRecyclerView = findViewById(R.id.reyclerview_message_list);
+        message = findViewById(R.id.text_message_body);
+        message.setText("COUCOU");
+
+
+        mMessageAdapter = new MessageListAdapter(MessageListActivity.this);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
+        mRecyclerView.setAdapter(mMessageAdapter);
 
         User me = new User("andré", "google.com");
 
@@ -37,31 +49,12 @@ public class MessageListActivity extends AppCompatActivity {
         results.add(message3);
         results.add(message4);
 
-        Log.d("COUNT", results.toString());
-
-        setContentView(R.layout.activity_message_list);
-        RecyclerView mRecyclerView = findViewById(R.id.reyclerview_message_list);
-
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        mMessageAdapter = new MessageListAdapter (MessageListActivity.this, results);
         mRecyclerView.setAdapter(mMessageAdapter);
+        mMessageAdapter.notifyDataSetChanged();
+    }
 
-//        mMessageAdapter = new MessageListAdapter(MessageListActivity.this, results);
-//        mMessageAdapter
-//
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
-//
-//        mRecyclerView.setAdapter(mMessageAdapter);
-
-//        mMessageAdapter = new MessageListAdapter(MessageListActivity.this, results);
-//        RecyclerView mMessageRecycler = findViewById(R.id.reyclerview_message_list);
-//
-//        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
-//        mMessageRecycler.setAdapter(mMessageAdapter);
-//        mMessageAdapter.setMessageList(results);
-//        mMessageAdapter.notifyDataSetChanged();
-
-        Log.d("coucou", "uouaciciiciciciccici");
+    @Override
+    public void onTopRatedClick(Message animal) {
+        Log.d("HELLO", "oui");
     }
 }

@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
 import com.example.tretiakoff.sifg2.model.Message;
 import com.example.tretiakoff.sifg2.model.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,84 +22,60 @@ import java.util.ArrayList;
  * Created by tretiakoff on 03/07/2018.
  */
 
-public class MessageListAdapter extends RecyclerView.Adapter{
+public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.TopRatedViewHolder> {
 
-    private static final int VIEW_TYPE_MESSAGE_SENT = 1;
-    private static final int VIEW_TYPE_MESSAGE_RECEIVED = 2;
+    private ArrayList<Message> mAnimalList = new ArrayList<>();
+    private LayoutInflater topRatedInflater;
+    private OnTopRatedClickListener mOnTopRatedOnClickListener;
 
-    private Context mContext;
-    private ArrayList<Message> mMessageList;
-
-    public MessageListAdapter(Context context, ArrayList<Message> messageList) {
-        mContext = context;
-        mMessageList = messageList;
+    public MessageListAdapter(OnTopRatedClickListener mOnTopRatedOnClickListener) {
+        this.mOnTopRatedOnClickListener = mOnTopRatedOnClickListener;
     }
 
-    public void setMessageList(ArrayList<Message> topRatedList) {
+    public static class TopRatedViewHolder extends RecyclerView.ViewHolder {
 
-        mMessageList = topRatedList;
+        private TextView title;
+        RelativeLayout topRatedContainer;
+
+        TopRatedViewHolder(View topRatedItemLayout) {
+            super(topRatedItemLayout);
+            topRatedContainer = (RelativeLayout) topRatedItemLayout;
+            title = topRatedItemLayout.findViewById(R.id.text_message_body);
+        }
+    }
+
+    @Override
+    public TopRatedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View topRatedRl = topRatedInflater.from(parent.getContext()).inflate(R.layout.item_message_sent, parent, false);
+        return new TopRatedViewHolder(topRatedRl);
+    }
+
+    @Override
+    public void onBindViewHolder(TopRatedViewHolder holder, final int position) {
+
+        final Message mAnimal = mAnimalList.get(position);
+        holder.title.setText(mAnimal.getMessage());
+
+        holder.topRatedContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mOnTopRatedOnClickListener.onTopRatedClick(m);
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return mMessageList.size();
+        return mAnimalList.size();
     }
 
-    // Inflates the appropriate layout according to the ViewType.
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
+    public void setTopRatedList(ArrayList<Message> animalList) {
 
-            view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_message_sent, parent, false);
-            return new SentMessageHolder(view);
+        mAnimalList = animalList;
     }
 
-    // Passes the message object to a ViewHolder so that the contents can be bound to UI.
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Message message = mMessageList.get(position);
-
-                ((SentMessageHolder) holder).bind(message);
+    public interface OnTopRatedClickListener{
+        void onTopRatedClick(Message animal);
     }
-
-    private class SentMessageHolder extends RecyclerView.ViewHolder {
-        TextView messageText, timeText;
-
-        SentMessageHolder(View itemView) {
-            super(itemView);
-
-            messageText = itemView.findViewById(R.id.text_message_body);
-            timeText = itemView.findViewById(R.id.text_message_time);
-        }
-
-
-
-        void bind(Message message) {
-            messageText.setText(message.getMessage());
-
-//            timeText.setText(DateUtils.formatDateTime(mContext, message.getCreatedAt(), 0));
-        }
-    }
-
-//    private class ReceivedMessageHolder extends RecyclerView.ViewHolder {
-//        TextView messageText, timeText, nameText;
-//
-//        ReceivedMessageHolder(View itemView) {
-//            super(itemView);
-//
-//            messageText = itemView.findViewById(R.id.text_message_body);
-//            timeText = itemView.findViewById(R.id.text_message_time);
-//            nameText = itemView.findViewById(R.id.text_message_name);
-//        }
-//
-//        void bind(Message message) {
-//            messageText.setText(message.getMessage());
-//
-//            timeText.setText(DateUtils.formatDateTime(mContext, message.getCreatedAt(), 0));
-//
-//            nameText.setText(message.getSender().getNickname());
-//
-//        }
-//    }
 }
