@@ -6,44 +6,54 @@
     android:layout_height="match_parent"
     tools:context="com.example.tretiakoff.sifg2.activity.MainActivity">
 
-    <Button
-        android:id="@+id/chatBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chatBtn"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="68dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="495dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkUpBtn"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="165dp" />
+        <Button
+            android:id="@+id/chatBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chatBtn" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/newOrderBtn"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="271dp" />
+        <Button
+            android:id="@+id/checkupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/checkUpBtn" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/followedBtn"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="373dp" />
+        <Button
+            android:id="@+id/newSubBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/newOrderBtn" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/getSpecialistBtn"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="446dp" />
+        <Button
+            android:id="@+id/fallowupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/followedBtn" />
+
+        <Button
+            android:id="@+id/findSpecialistBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/getSpecialistBtn" />
+        
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
