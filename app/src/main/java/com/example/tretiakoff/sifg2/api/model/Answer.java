@@ -6,20 +6,32 @@ package com.example.tretiakoff.sifg2.api.model;
 
 public class Answer {
 
-    private int id;
-    private String text;
-    private int next_question_id;
-    private Boolean emergency;
-
-    public Answer(int id, String text, int next_question_id, Boolean emergency) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public void setText(String text) {
         this.text = text;
-        this.next_question_id = next_question_id;
+    }
+
+    public void setEmergency(Boolean emergency) {
         this.emergency = emergency;
     }
 
-    public Boolean getEmergency() {
-        return emergency;
+    public void setNext_question_id(int next_question_id) {
+        this.next_question_id = next_question_id;
+    }
+
+    public void setPathology(Pathology pathology) {
+        this.pathology = pathology;
+    }
+
+    public Answer(int id, String text, Boolean emergency, int next_question_id, Pathology pathology) {
+        this.id = id;
+        this.text = text;
+        this.emergency = emergency;
+        this.next_question_id = next_question_id;
+        this.pathology = pathology;
     }
 
     public int getId() {
@@ -30,8 +42,21 @@ public class Answer {
         return text;
     }
 
+    public Boolean getEmergency() {
+        return emergency;
+    }
+
     public int getNext_question_id() {
         return next_question_id;
     }
 
+    public Pathology getPathology() {
+        return pathology;
+    }
+
+    private int id;
+    private String text;
+    private Boolean emergency;
+    private int next_question_id;
+    private Pathology pathology;
 }

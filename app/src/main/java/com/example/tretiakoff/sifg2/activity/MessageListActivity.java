@@ -1,5 +1,6 @@
 package com.example.tretiakoff.sifg2.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,14 +43,14 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     private Boolean firstAnswer;
     private Sifg2 service = Client.getClient();
     private String sentMessage;
-    private int nextQuestionId;
+    private int nextId;
     Message receivedMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
-        
+
         sendMsgBtn = findViewById(R.id.button_chatbox_send);
         textInput = findViewById(R.id.edittext_chatbox);
 
@@ -91,8 +92,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                     answerAdapter.setTopRatedList(answers);
                     answerAdapter.notifyDataSetChanged();
 
-//                    nextQuestionId = answer.getNext_question_id();
-
                 } else {
                     Log.d("ERROR", "error");
                     return;
@@ -114,35 +113,45 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     @Override
     public void onBtnClick(Answer answer) {
         sentMessage = answer.getText();
-        nextQuestionId = answer.getNext_question_id();
+        Log.d("ANSWER", answer.getText());
 
+        nextId = answer.getNext_question_id();
+//        if (nextQuestionId == null) {
+//            Log.d("OUF", "OUF");
+//            return;
+//        }
         final Message receivedMessage = new Message(sentMessage, false);
         messages.add(receivedMessage);
         mMessageAdapter.notifyDataSetChanged();
-
-
-        retrofit2.Call call = service.getQuestions(nextQuestionId);
+        mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
+        Log.d("IDDDDD", String.valueOf(nextId));
+        retrofit2.Call call = service.getQuestions(nextId);
         call.enqueue(new Callback<ChatResult>() {
             @Override
             public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
                 if (response.code() == 200) {
                     ChatResult result = response.body();
+
                     String question = result.getText();
+                    Log.d("BODY", question);
                     if (!question.equals("")) {
                         Message receivedMessage = new Message(question, true);
                         messages.add(receivedMessage);
                         mMessageAdapter.notifyDataSetChanged();
-                    }
+                        mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
+                    }     Log.d("BODY", question);
 
                     answers = result.getAnswers();
 
                     if (answers.size() > 0) {
                         answerAdapter.setTopRatedList(answers);
                         answerAdapter.notifyDataSetChanged();
+                        mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
                     }
 
                     answerAdapter.setTopRatedList(answers);
                     answerAdapter.notifyDataSetChanged();
+                    mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
 
                 } else {
                     Log.d("ERROR", "error");
@@ -159,5 +168,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
 
 
     }
+
 }
 
