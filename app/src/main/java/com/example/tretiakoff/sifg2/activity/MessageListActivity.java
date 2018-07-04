@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
+import com.example.tretiakoff.sifg2.adapter.BtnListAdapter;
 import com.example.tretiakoff.sifg2.adapter.MessageListAdapter;
 import com.example.tretiakoff.sifg2.api.client.Client;
 import com.example.tretiakoff.sifg2.api.client.Sifg2;
@@ -26,14 +27,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MessageListActivity  extends AppCompatActivity {
+public class MessageListActivity  extends AppCompatActivity implements BtnListAdapter.OnTopRatedClickListener {
 
     private RecyclerView mMessageRecycler;
     private MessageListAdapter mMessageAdapter;
+    private RecyclerView mBtnRecycler;
+    private BtnListAdapter mBtnAdapter;
     private TextView message;
     private Button sendMsgBtn;
     private TextView textInput;
     private ArrayList<Message> messages = new ArrayList<>();
+    private ArrayList<Answer> answers = new ArrayList<>();
     private Boolean firstAnswer;
     private Sifg2 service = Client.getClient();
     private String sentMessage;
@@ -47,103 +51,118 @@ public class MessageListActivity  extends AppCompatActivity {
         sendMsgBtn = findViewById(R.id.button_chatbox_send);
         textInput = findViewById(R.id.edittext_chatbox);
 
-        mMessageRecycler = findViewById(R.id.message_list_view);
-        mMessageAdapter = new MessageListAdapter(MessageListActivity.this, messages);
-        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
+//        mMessageRecycler = findViewById(R.id.message_list_view);
+//        mMessageAdapter = new MessageListAdapter(MessageListActivity.this, messages);
+//        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
+//
+//        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
+//        mMessageRecycler.setAdapter(mMessageAdapter);
 
-        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
-        mMessageRecycler.setAdapter(mMessageAdapter);
+        mBtnRecycler = findViewById(R.id.btn_list_view);
 
-        firstAnswer = false;
-        retrofit2.Call call = service.getFirstQuestion();
-        Log.d("CALLL", "BEGAN");
-        call.enqueue(new Callback<ChatResult>() {
-            @Override
-            public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
-                if (response.code() == 200) {
-                    Log.d("ERROR", "error");
-                    ChatResult result = response.body();
-                    String question = result.getText();
-                    Message firstMessage = new Message("Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation", true);
-                    messages.add(firstMessage);
-                    mMessageAdapter.notifyDataSetChanged();
-                    receivedMessage = new Message(question, true);
-                    messages.add(receivedMessage);
-                    mMessageAdapter.notifyDataSetChanged();
+        mBtnAdapter = new BtnListAdapter(MessageListActivity.this);
 
-                    Button myButton = new Button(MessageListActivity.this);
-                    myButton.setText("Push Me");
+        mBtnRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
+        mBtnRecycler.setAdapter(mBtnAdapter);
 
+        Answer answer = new Answer(1, "OUI", 2, false);
+        Answer answer1 = new Answer(2, "NON", 2, false);
 
+        answers.add(answer);
+        answers.add(answer1);
 
+        mBtnAdapter.setTopRatedList(answers);
+        mBtnAdapter.notifyDataSetChanged();
 
-                    ArrayList<Answer> answers = result.getAnswers();
-
-//                    nextQuestionId = answer.getNext_question_id();
-
-                } else {
-                    Log.d("ERROR", "error");
-                    return;
-                }
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
-                return;
-            }
-        });
-
-
-        sendMsgBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sentMessage = textInput.getText().toString();
-                Message sentMsg = new Message(sentMessage, false);
-                messages.add(sentMsg);
-                mMessageAdapter.notifyDataSetChanged();
-
-                if (firstAnswer == true) {
-                    Log.d("FIRST", "TRUE");
-                    String bodyZone = textInput.getText().toString().toLowerCase().trim();
-                    if (!bodyZone.equals("ventre")) {
-                        receivedMessage = new Message("Désolé, je ne traite pas encore les pathologies liées à cette zone du corps.", true);
-                        messages.add(receivedMessage);
-                        mMessageAdapter.notifyDataSetChanged();
-                        return;
-                    }
-                }
-
-                retrofit2.Call call = service.getQuestions(nextQuestionId);
-                call.enqueue(new Callback<ChatResult>() {
-                    @Override
-                    public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
-                        if (response.code() == 200) {
-                            ChatResult result = response.body();
-                            Log.d("RESP", "290000");
-                            String question = result.getText();
-                            Log.d("RESP",question);
-                            Message receivedMessage = new Message(question, true);
-                            messages.add(receivedMessage);
-                            mMessageAdapter.notifyDataSetChanged();
-                            firstAnswer = false;
-
-                        } else {
-                            Log.d("ERROR", "error");
-                            return;
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-                        Log.d("ERROR", t.getMessage());
-                        return;
-                    }
-                });
+//        retrofit2.Call call = service.getFirstQuestion();
+//        Log.d("CALLL", "BEGAN");
+//        call.enqueue(new Callback<ChatResult>() {
+//            @Override
+//            public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
+//                if (response.code() == 200) {
+//                    Log.d("ERROR", "error");
+//                    ChatResult result = response.body();
+//                    String question = result.getText();
+//                    Message firstMessage = new Message("Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation", true);
+//                    messages.add(firstMessage);
+//                    mMessageAdapter.notifyDataSetChanged();
+//                    receivedMessage = new Message(question, true);
+//                    messages.add(receivedMessage);
+//                    mMessageAdapter.notifyDataSetChanged();
+//
+//                    Button myButton = new Button(MessageListActivity.this);
+//                    myButton.setText("Push Me");
+//
+//
+//
+//
+//                    ArrayList<Answer> answers = result.getAnswers();
+//
+////                    nextQuestionId = answer.getNext_question_id();
+//
+//                } else {
+//                    Log.d("ERROR", "error");
+//                    return;
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                Log.d("ERROR", t.getMessage());
+//                return;
+//            }
+//        });
 
 
-            }
-        });
+//        sendMsgBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                sentMessage = textInput.getText().toString();
+//                Message sentMsg = new Message(sentMessage, false);
+//                messages.add(sentMsg);
+//                mMessageAdapter.notifyDataSetChanged();
+//
+//                if (firstAnswer == true) {
+//                    Log.d("FIRST", "TRUE");
+//                    String bodyZone = textInput.getText().toString().toLowerCase().trim();
+//                    if (!bodyZone.equals("ventre")) {
+//                        receivedMessage = new Message("Désolé, je ne traite pas encore les pathologies liées à cette zone du corps.", true);
+//                        messages.add(receivedMessage);
+//                        mMessageAdapter.notifyDataSetChanged();
+//                        return;
+//                    }
+//                }
+//
+//                retrofit2.Call call = service.getQuestions(nextQuestionId);
+//                call.enqueue(new Callback<ChatResult>() {
+//                    @Override
+//                    public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
+//                        if (response.code() == 200) {
+//                            ChatResult result = response.body();
+//                            Log.d("RESP", "290000");
+//                            String question = result.getText();
+//                            Log.d("RESP",question);
+//                            Message receivedMessage = new Message(question, true);
+//                            messages.add(receivedMessage);
+//                            mMessageAdapter.notifyDataSetChanged();
+//                            firstAnswer = false;
+//
+//                        } else {
+//                            Log.d("ERROR", "error");
+//                            return;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call call, Throwable t) {
+//                        Log.d("ERROR", t.getMessage());
+//                        return;
+//                    }
+//                });
+//
+//
+//            }
+//        });
 
 //        message = findViewById(R.id.text_message_body);
 //        message.setText("COUCOU");
@@ -151,4 +170,8 @@ public class MessageListActivity  extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onTopRatedClick(Answer animal) {
+
+    }
 }
