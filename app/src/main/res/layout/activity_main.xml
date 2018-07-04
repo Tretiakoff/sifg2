@@ -28,6 +28,7 @@
         android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:text="@string/welcome"
+        android:textColor="@color/color_outer_space"
         android:textSize="24sp"
         app:fontFamily="@font/muli_bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,6 +105,7 @@
         android:layout_marginStart="8dp"
         android:gravity="center"
         android:text="@string/homeInfo"
+        android:textColor="@color/color_input"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
