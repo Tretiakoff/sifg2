@@ -7,13 +7,11 @@ package com.example.tretiakoff.sifg2.model;
 public class Message {
 
     String message;
-    User sender;
-    long createdAt;
+    Boolean received;
 
-    public Message(String message, User sender, long createdAt) {
+    public Message(String message, Boolean received) {
         this.message = message;
-        this.sender = sender;
-        this.createdAt = createdAt;
+        this.received = received;
     }
 
     public String getMessage() {
@@ -24,20 +22,11 @@ public class Message {
         this.message = message;
     }
 
-    public User getSender() {
-        return sender;
+    public void setReceived(Boolean received) {
+        this.received = received;
     }
 
-    public void setSender(User sender) {
-        this.sender = sender;
+    public Boolean getReceived() {
+        return received;
     }
-
-    public long getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
-    }
-
 }
