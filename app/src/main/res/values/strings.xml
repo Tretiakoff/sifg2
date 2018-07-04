@@ -12,4 +12,7 @@
     <string name="personnalDoctor">Mon Médecin</string>
     <string name="otherDoctor">Autre médecin</string>
     <string name="callEmergency">Appeller le 112</string>
+    <string name="welcome">hiji, la consultation simplifiée</string>
+    <string name="phoneNumber">Saisissez votre numéro de téléphone</string>
+    <string name="homeInfo">Cette application n’est pas une application d’urgences</string>
 </resources>
