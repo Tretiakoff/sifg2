@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".activity.EntryActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="logo"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/entry_title"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/entries_welcome"
+        android:textAllCaps="false"
+        android:textColor="@color/color_title"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:fontFamily="@font/muli_bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="246dp"
+        android:layout_height="0dp"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/entries_title"
+        android:textColor="@color/color_outer_space"
+        android:textSize="20sp"
+        app:fontFamily="@font/muli_bold"
+        app:layout_constraintStart_toStartOf="@+id/entry_title"
+        app:layout_constraintTop_toBottomOf="@+id/entry_title" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/problem_Btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_cerise"
+                android:gravity="center_vertical"
+                android:paddingBottom="38dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="38dp"
+                android:text="@string/entries_probleme"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16dp"
+                app:fontFamily="@font/muli_bold"
+                app:layout_constraintEnd_toEndOf="@+id/checkup_Btn"
+                app:layout_constraintStart_toStartOf="@+id/checkup_Btn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/checkup_Btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/color_java_2"
+                android:gravity="center_vertical"
+                android:paddingBottom="38dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="38dp"
+                android:text="@string/entries_checkup"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16dp"
+                app:fontFamily="@font/muli_bold"
+                app:layout_constraintEnd_toEndOf="@+id/renouvellement_Btn"
+                app:layout_constraintStart_toStartOf="@+id/renouvellement_Btn"
+                tools:layout_editor_absoluteY="123dp" />
+
+            <Button
+                android:id="@+id/renouvellement_Btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_sundy_brown"
+                android:gravity="center_vertical"
+                android:paddingBottom="38dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="38dp"
+                android:text="Button"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16dp"
+                app:fontFamily="@font/muli_bold"
+                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
+                app:layout_constraintStart_toStartOf="@+id/suivi_Btn"
+                app:layout_constraintTop_toBottomOf="@+id/checkup_Btn"
+                tools:text="@string/entries_renouvellement" />
+
+            <Button
+                android:id="@+id/suivi_Btn"
+                android:layout_width="379dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_java"
+                android:gravity="center_vertical"
+                android:paddingBottom="38dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="38dp"
+                android:text="Button"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16dp"
+                app:fontFamily="@font/muli_bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/besoin_Btn"
+                tools:layout_editor_absoluteX="16dp"
+                tools:text="@string/entries_suivi" />
+
+            <Button
+                android:id="@+id/besoin_Btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_bright_sun"
+                android:contentDescription="@string/entries_specialiste"
+                android:gravity="center_vertical"
+                android:paddingBottom="38dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="38dp"
+                android:text="@string/entries_specialiste"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16dp"
+                app:fontFamily="@font/muli_bold"
+                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
+                app:layout_constraintStart_toStartOf="@+id/suivi_Btn"
+                app:layout_constraintTop_toBottomOf="@+id/renouvellement_Btn" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:src="@drawable/probleme"
+                app:layout_constraintBottom_toBottomOf="@+id/problem_Btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/problem_Btn"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
