@@ -5,4 +5,7 @@
     <string name="newOrderBtn">Renouvellement d\'ordonnance</string>
     <string name="followedBtn">Suivi de traitement</string>
     <string name="getSpecialistBtn">Trouver un spécialiste</string>
+    <string name="welcome">hiji, la consultation simplifiée</string>
+    <string name="phoneNumber">Saisissez votre numéro de téléphone</string>
+    <string name="homeInfo">Cette application n’est pas une application d’urgences</string>
 </resources>

@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color_java">#1bc6c7</color>
+    <color name="color_cerise">#E52F7D</color>
+    <color name="color_bright_sun">#FFCE3E</color>
+    <color name="color_java_2">#1BCDA5</color>
+    <color name="color_sundy_brown">#F4955E</color>
+    <color name="color_blue_haze">#BDC2D9</color>
+    <color name="color_east_bay">#485589</color>
+    <color name="color_outer_space">#2E353F</color>
+    <color name="color_athens_gray">#F4F5F7</color>
+    <color name="color_input">#bdc2d9</color>
+    <color name="color_input_content">#979797</color>
 </resources>
