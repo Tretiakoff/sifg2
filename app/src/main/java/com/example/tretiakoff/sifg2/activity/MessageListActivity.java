@@ -20,6 +20,7 @@ import com.example.tretiakoff.sifg2.api.client.Client;
 import com.example.tretiakoff.sifg2.api.client.Sifg2;
 import com.example.tretiakoff.sifg2.api.model.Answer;
 import com.example.tretiakoff.sifg2.api.model.ChatResult;
+import com.example.tretiakoff.sifg2.api.model.Pathology;
 import com.example.tretiakoff.sifg2.model.Message;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     private Boolean firstAnswer;
     private Sifg2 service = Client.getClient();
     private String sentMessage;
-    private int nextId;
+    private Integer nextId;
     Message receivedMessage;
 
     @Override
@@ -116,10 +117,22 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         Log.d("ANSWER", answer.getText());
 
         nextId = answer.getNext_question_id();
-//        if (nextQuestionId == null) {
-//            Log.d("OUF", "OUF");
-//            return;
-//        }
+
+        if (answer.getEmergency()) {
+            Message receivedMessage = new Message("APPELLER LES URGENCES", true);
+            messages.add(receivedMessage);
+            mMessageAdapter.notifyDataSetChanged();
+            mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
+            return;
+        }
+        if (nextId == null) {
+            Pathology pathology = answer.getPathology();
+            Message receivedMessage = new Message(pathology.getLabel(), true);
+            messages.add(receivedMessage);
+            mMessageAdapter.notifyDataSetChanged();
+            mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
+            return;
+        }
         final Message receivedMessage = new Message(sentMessage, false);
         messages.add(receivedMessage);
         mMessageAdapter.notifyDataSetChanged();

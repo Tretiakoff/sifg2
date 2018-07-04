@@ -18,7 +18,7 @@ public class Answer {
         this.emergency = emergency;
     }
 
-    public void setNext_question_id(int next_question_id) {
+    public void setNext_question_id(Integer next_question_id) {
         this.next_question_id = next_question_id;
     }
 
@@ -26,7 +26,7 @@ public class Answer {
         this.pathology = pathology;
     }
 
-    public Answer(int id, String text, Boolean emergency, int next_question_id, Pathology pathology) {
+    public Answer(int id, String text, Boolean emergency, Integer next_question_id, Pathology pathology) {
         this.id = id;
         this.text = text;
         this.emergency = emergency;
@@ -46,7 +46,7 @@ public class Answer {
         return emergency;
     }
 
-    public int getNext_question_id() {
+    public Integer getNext_question_id() {
         return next_question_id;
     }
 
@@ -57,6 +57,6 @@ public class Answer {
     private int id;
     private String text;
     private Boolean emergency;
-    private int next_question_id;
+    private Integer next_question_id;
     private Pathology pathology;
 }

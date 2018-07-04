@@ -15,7 +15,7 @@ public interface Sifg2 {
     String BASE_URL = "https://www.sifg2.ml/api/";
 
     @GET("questions/{id}")
-    Call<ChatResult> getQuestions(@Path(value = "id") int id);
+    Call<ChatResult> getQuestions(@Path(value = "id") Integer id);
 
     @GET("questions/start")
     Call<ChatResult> getFirstQuestion();

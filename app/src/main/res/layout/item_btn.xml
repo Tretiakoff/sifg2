@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:padding="8dp"
         android:textColor="#ffffff"
-        android:background="@drawable/rounded_rectangle_orange"
+        android:background="@drawable/item_answer_btn"
         />
 </RelativeLayout>
 
