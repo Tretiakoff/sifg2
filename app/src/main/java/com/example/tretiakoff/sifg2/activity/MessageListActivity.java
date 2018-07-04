@@ -7,12 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
-import com.example.tretiakoff.sifg2.adapter.BtnListAdapter;
+import com.example.tretiakoff.sifg2.adapter.AnswerAdapter;
 import com.example.tretiakoff.sifg2.adapter.MessageListAdapter;
 import com.example.tretiakoff.sifg2.api.client.Client;
 import com.example.tretiakoff.sifg2.api.client.Sifg2;
@@ -27,12 +28,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MessageListActivity  extends AppCompatActivity implements BtnListAdapter.OnTopRatedClickListener {
+public class MessageListActivity  extends AppCompatActivity implements AnswerAdapter.OnBtnClickListener {
 
     private RecyclerView mMessageRecycler;
     private MessageListAdapter mMessageAdapter;
     private RecyclerView mBtnRecycler;
-    private BtnListAdapter mBtnAdapter;
+    private AnswerAdapter answerAdapter;
     private TextView message;
     private Button sendMsgBtn;
     private TextView textInput;
@@ -51,67 +52,71 @@ public class MessageListActivity  extends AppCompatActivity implements BtnListAd
         sendMsgBtn = findViewById(R.id.button_chatbox_send);
         textInput = findViewById(R.id.edittext_chatbox);
 
-//        mMessageRecycler = findViewById(R.id.message_list_view);
-//        mMessageAdapter = new MessageListAdapter(MessageListActivity.this, messages);
-//        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
-//
-//        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
-//        mMessageRecycler.setAdapter(mMessageAdapter);
+        mMessageRecycler = findViewById(R.id.message_list_view);
+        mMessageAdapter = new MessageListAdapter(MessageListActivity.this, messages);
+        mMessageRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
+
+        mMessageRecycler.setAdapter(mMessageAdapter);
+
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(MessageListActivity.this, LinearLayoutManager.HORIZONTAL, false);
 
         mBtnRecycler = findViewById(R.id.btn_list_view);
 
-        mBtnAdapter = new BtnListAdapter(MessageListActivity.this);
+        answerAdapter = new AnswerAdapter(MessageListActivity.this);
 
-        mBtnRecycler.setLayoutManager(new LinearLayoutManager(MessageListActivity.this));
-        mBtnRecycler.setAdapter(mBtnAdapter);
+        mBtnRecycler.setLayoutManager(layoutManager);
+        mBtnRecycler.setAdapter(answerAdapter);
 
-        Answer answer = new Answer(1, "OUI", 2, false);
-        Answer answer1 = new Answer(2, "NON", 2, false);
+        Answer answer = new Answer(1, "OUI", 3, false);
+        Answer answer1 = new Answer(2, "FUU", 2, false);
+        Answer answer2 = new Answer(23, "FOUOU", 2, false);
 
         answers.add(answer);
         answers.add(answer1);
+        answers.add(answer2);
 
-        mBtnAdapter.setTopRatedList(answers);
-        mBtnAdapter.notifyDataSetChanged();
+        answerAdapter.setTopRatedList(answers);
+        answerAdapter.notifyDataSetChanged();
 
-//        retrofit2.Call call = service.getFirstQuestion();
-//        Log.d("CALLL", "BEGAN");
-//        call.enqueue(new Callback<ChatResult>() {
-//            @Override
-//            public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
-//                if (response.code() == 200) {
-//                    Log.d("ERROR", "error");
-//                    ChatResult result = response.body();
-//                    String question = result.getText();
-//                    Message firstMessage = new Message("Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation", true);
-//                    messages.add(firstMessage);
-//                    mMessageAdapter.notifyDataSetChanged();
-//                    receivedMessage = new Message(question, true);
-//                    messages.add(receivedMessage);
-//                    mMessageAdapter.notifyDataSetChanged();
-//
-//                    Button myButton = new Button(MessageListActivity.this);
-//                    myButton.setText("Push Me");
-//
-//
-//
-//
-//                    ArrayList<Answer> answers = result.getAnswers();
-//
-////                    nextQuestionId = answer.getNext_question_id();
-//
-//                } else {
-//                    Log.d("ERROR", "error");
-//                    return;
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                Log.d("ERROR", t.getMessage());
-//                return;
-//            }
-//        });
+        retrofit2.Call call = service.getFirstQuestion();
+        Log.d("CALLL", "BEGAN");
+        call.enqueue(new Callback<ChatResult>() {
+            @Override
+            public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
+                if (response.code() == 200) {
+                    Log.d("ERROR", "error");
+                    ChatResult result = response.body();
+                    String question = result.getText();
+                    Message firstMessage = new Message("Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation", true);
+                    messages.add(firstMessage);
+                    mMessageAdapter.notifyDataSetChanged();
+                    receivedMessage = new Message(question, true);
+                    messages.add(receivedMessage);
+                    mMessageAdapter.notifyDataSetChanged();
+
+                    Button myButton = new Button(MessageListActivity.this);
+                    myButton.setText("Push Me");
+
+
+
+
+                    ArrayList<Answer> answers = result.getAnswers();
+
+//                    nextQuestionId = answer.getNext_question_id();
+
+                } else {
+                    Log.d("ERROR", "error");
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.d("ERROR", t.getMessage());
+                return;
+            }
+        });
 
 
 //        sendMsgBtn.setOnClickListener(new View.OnClickListener() {
@@ -169,9 +174,8 @@ public class MessageListActivity  extends AppCompatActivity implements BtnListAd
 
 
     }
-
     @Override
-    public void onTopRatedClick(Answer animal) {
-
+    public void onBtnClick(Answer answer) {
+        Log.e("FUCCCCCCK", "FUCK");
     }
 }
