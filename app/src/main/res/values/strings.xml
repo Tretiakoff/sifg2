@@ -5,4 +5,7 @@
     <string name="newOrderBtn">Renouvellement d\'ordonnance</string>
     <string name="followedBtn">Suivi de traitement</string>
     <string name="getSpecialistBtn">Trouver un spécialiste</string>
+    <string name="helloMsg">Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation</string>
+    <string name="pathologyAfterMsg">Maintenant que nous avons pré-identifié votre pathologie, passons à la prise de consultation avec un médecin.</string>
+    <string name="emergencyMsg">APPELLEZ LES URGENCES</string>
 </resources>

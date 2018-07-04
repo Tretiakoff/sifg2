@@ -79,7 +79,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                     Log.d("ERROR", "error");
                     ChatResult result = response.body();
                     String question = result.getText();
-                    Message firstMessage = new Message("Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation", true);
+                    Message firstMessage = new Message(getResources().getString(R.string.helloMsg), true);
                     messages.add(firstMessage);
                     mMessageAdapter.notifyDataSetChanged();
                     receivedMessage = new Message(question, true);
@@ -119,7 +119,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         nextId = answer.getNext_question_id();
 
         if (answer.getEmergency()) {
-            Message receivedMessage = new Message("APPELLER LES URGENCES", true);
+            Message receivedMessage = new Message(getResources().getString(R.string.emergencyMsg), true);
             messages.add(receivedMessage);
             mMessageAdapter.notifyDataSetChanged();
             mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
@@ -129,6 +129,8 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
             Pathology pathology = answer.getPathology();
             Message receivedMessage = new Message(pathology.getLabel(), true);
             messages.add(receivedMessage);
+            Message pathologyAfyer = new Message(getResources().getString(R.string.pathologyAfterMsg), true);
+            messages.add(pathologyAfyer);
             mMessageAdapter.notifyDataSetChanged();
             mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
             return;
