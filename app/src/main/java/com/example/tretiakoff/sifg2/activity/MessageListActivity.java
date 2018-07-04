@@ -49,6 +49,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
+        
         sendMsgBtn = findViewById(R.id.button_chatbox_send);
         textInput = findViewById(R.id.edittext_chatbox);
 
@@ -115,7 +116,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         sentMessage = answer.getText();
         nextQuestionId = answer.getNext_question_id();
 
-        Message receivedMessage = new Message(sentMessage, true);
+        final Message receivedMessage = new Message(sentMessage, false);
         messages.add(receivedMessage);
         mMessageAdapter.notifyDataSetChanged();
 
@@ -127,9 +128,11 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                 if (response.code() == 200) {
                     ChatResult result = response.body();
                     String question = result.getText();
-                    Message receivedMessage = new Message(question, true);
-                    messages.add(receivedMessage);
-                    mMessageAdapter.notifyDataSetChanged();
+                    if (!question.equals("")) {
+                        Message receivedMessage = new Message(question, true);
+                        messages.add(receivedMessage);
+                        mMessageAdapter.notifyDataSetChanged();
+                    }
 
                     answers = result.getAnswers();
 
