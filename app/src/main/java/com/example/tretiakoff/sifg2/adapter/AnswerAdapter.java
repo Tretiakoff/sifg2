@@ -32,7 +32,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
 
     public static class AnswerViewHolder extends RecyclerView.ViewHolder {
 
-        private Button cover;
+        private TextView cover;
         RelativeLayout btnContainer;
 
         AnswerViewHolder(View btnViewItemLayout) {

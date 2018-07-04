@@ -68,19 +68,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         mBtnRecycler.setLayoutManager(layoutManager);
         mBtnRecycler.setAdapter(answerAdapter);
 
-        Answer answer = new Answer(1, "OUI", 3, false);
-        Answer answer1 = new Answer(2, "FUU", 2, false);
-        Answer answer2 = new Answer(23, "FOUOU", 2, false);
-
-        answers.add(answer);
-        answers.add(answer1);
-        answers.add(answer2);
-
-        answerAdapter.setTopRatedList(answers);
-        answerAdapter.notifyDataSetChanged();
-
         retrofit2.Call call = service.getFirstQuestion();
-        Log.d("CALLL", "BEGAN");
         call.enqueue(new Callback<ChatResult>() {
             @Override
             public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
@@ -92,16 +80,15 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                     messages.add(firstMessage);
                     mMessageAdapter.notifyDataSetChanged();
                     receivedMessage = new Message(question, true);
-                    messages.add(receivedMessage);
-                    mMessageAdapter.notifyDataSetChanged();
+                    if (!receivedMessage.equals("")) {
+                        messages.add(receivedMessage);
+                        mMessageAdapter.notifyDataSetChanged();
+                    }
 
-                    Button myButton = new Button(MessageListActivity.this);
-                    myButton.setText("Push Me");
+                    answers = result.getAnswers();
 
-
-
-
-                    ArrayList<Answer> answers = result.getAnswers();
+                    answerAdapter.setTopRatedList(answers);
+                    answerAdapter.notifyDataSetChanged();
 
 //                    nextQuestionId = answer.getNext_question_id();
 
@@ -119,63 +106,55 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         });
 
 
-//        sendMsgBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                sentMessage = textInput.getText().toString();
-//                Message sentMsg = new Message(sentMessage, false);
-//                messages.add(sentMsg);
-//                mMessageAdapter.notifyDataSetChanged();
-//
-//                if (firstAnswer == true) {
-//                    Log.d("FIRST", "TRUE");
-//                    String bodyZone = textInput.getText().toString().toLowerCase().trim();
-//                    if (!bodyZone.equals("ventre")) {
-//                        receivedMessage = new Message("Désolé, je ne traite pas encore les pathologies liées à cette zone du corps.", true);
-//                        messages.add(receivedMessage);
-//                        mMessageAdapter.notifyDataSetChanged();
-//                        return;
-//                    }
-//                }
-//
-//                retrofit2.Call call = service.getQuestions(nextQuestionId);
-//                call.enqueue(new Callback<ChatResult>() {
-//                    @Override
-//                    public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
-//                        if (response.code() == 200) {
-//                            ChatResult result = response.body();
-//                            Log.d("RESP", "290000");
-//                            String question = result.getText();
-//                            Log.d("RESP",question);
-//                            Message receivedMessage = new Message(question, true);
-//                            messages.add(receivedMessage);
-//                            mMessageAdapter.notifyDataSetChanged();
-//                            firstAnswer = false;
-//
-//                        } else {
-//                            Log.d("ERROR", "error");
-//                            return;
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call call, Throwable t) {
-//                        Log.d("ERROR", t.getMessage());
-//                        return;
-//                    }
-//                });
-//
-//
-//            }
-//        });
-
-//        message = findViewById(R.id.text_message_body);
-//        message.setText("COUCOU");
-
+        answerAdapter.setTopRatedList(answers);
+        answerAdapter.notifyDataSetChanged();
 
     }
     @Override
     public void onBtnClick(Answer answer) {
-        Log.e("FUCCCCCCK", "FUCK");
+        sentMessage = answer.getText();
+        nextQuestionId = answer.getNext_question_id();
+
+        Message receivedMessage = new Message(sentMessage, true);
+        messages.add(receivedMessage);
+        mMessageAdapter.notifyDataSetChanged();
+
+
+        retrofit2.Call call = service.getQuestions(nextQuestionId);
+        call.enqueue(new Callback<ChatResult>() {
+            @Override
+            public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
+                if (response.code() == 200) {
+                    ChatResult result = response.body();
+                    String question = result.getText();
+                    Message receivedMessage = new Message(question, true);
+                    messages.add(receivedMessage);
+                    mMessageAdapter.notifyDataSetChanged();
+
+                    answers = result.getAnswers();
+
+                    if (answers.size() > 0) {
+                        answerAdapter.setTopRatedList(answers);
+                        answerAdapter.notifyDataSetChanged();
+                    }
+
+                    answerAdapter.setTopRatedList(answers);
+                    answerAdapter.notifyDataSetChanged();
+
+                } else {
+                    Log.d("ERROR", "error");
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.d("ERROR", t.getMessage());
+                return;
+            }
+        });
+
+
     }
 }
+

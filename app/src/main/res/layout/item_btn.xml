@@ -5,11 +5,15 @@
     android:orientation="horizontal"
     android:padding="10dp">
 
-    <Button
+    <TextView
         android:id="@+id/answerBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       />
+        android:layout_centerHorizontal="true"
+        android:padding="8dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_rectangle_orange"
+        />
 </RelativeLayout>
 
 
