@@ -15,8 +15,8 @@ https://github.com/quentinmassias/sifg2-api
 
 ## Groupe 2
 
-  - Belynda THYS
- - Clara TRETIAKOFF
+ - Belynda THYS
+ - Clara TRETIAKOFF FOURCADE
  - Florent GRADASSI
  - Gaoussou KONÉ
  - Marco LEROSE
