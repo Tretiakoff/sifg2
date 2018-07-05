@@ -75,7 +75,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
             @Override
             public void onResponse(Call<ChatResult> call, Response<ChatResult> response) {
                 if (response.code() == 200) {
-                    Log.d("ERROR", "error");
                     ChatResult result = response.body();
                     String question = result.getText();
                     Message firstMessage = new Message(getResources().getString(R.string.helloMsg), true);
@@ -93,7 +92,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                     answerAdapter.notifyDataSetChanged();
 
                 } else {
-                    Log.d("ERROR", "error");
                     return;
                 }
             }
@@ -120,11 +118,14 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         }
        else if (answer.getText().equals(getResources().getString(R.string.otherDoctor))) {
             Intent doctorListIntent = new Intent(MessageListActivity.this, DoctorListActivity.class);
+            Bundle b = new Bundle();
+            Log.d("answerId", String.valueOf(answer.getId()));
+            b.putInt("pathologyId", 2);
+            doctorListIntent.putExtras(b);
             startActivity(doctorListIntent);
-
+            return;
         }
         else if (answer.getText().equals(getResources().getString(R.string.callEmergency))) {
-            Log.d("JE PASSE", "ICI");
             call();
 
         }
@@ -132,7 +133,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         Message sentMsg = new Message(sentMessage, false);
         messages.add(sentMsg);
         mMessageAdapter.notifyDataSetChanged();
-        Log.d("ANSWER", answer.getText());
 
         nextId = answer.getNext_question_id();
 
@@ -178,13 +178,12 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                     ChatResult result = response.body();
 
                     String question = result.getText();
-                    Log.d("BODY", question);
                     if (!question.equals("")) {
                         Message receivedMessage = new Message(question, true);
                         messages.add(receivedMessage);
                         mMessageAdapter.notifyDataSetChanged();
                         mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
-                    }     Log.d("BODY", question);
+                    }
 
                     answers = result.getAnswers();
 
@@ -199,7 +198,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                     mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
 
                 } else {
-                    Log.d("ERROR", "error");
                     return;
                 }
             }
@@ -215,7 +213,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     }
 
     private void call() {
-        Log.d("CALLING", "NOW");
         if (ActivityCompat.checkSelfPermission(MessageListActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             try {
                 String phone = "112";
