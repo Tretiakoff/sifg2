@@ -1,4 +1,4 @@
-package com.example.tretiakoff.sifg2.api.model;
+package com.example.tretiakoff.sifg2.api.model.chat;
 
 /**
  * Created by tretiakoff on 04/07/2018.

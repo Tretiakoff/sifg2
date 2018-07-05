@@ -1,4 +1,4 @@
-package com.example.tretiakoff.sifg2.api.model;
+package com.example.tretiakoff.sifg2.api.model.chat;
 
 import java.util.ArrayList;
 

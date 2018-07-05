@@ -1,11 +1,10 @@
 package com.example.tretiakoff.sifg2.api.client;
 
-import com.example.tretiakoff.sifg2.api.model.ChatResult;
+import com.example.tretiakoff.sifg2.api.model.chat.ChatResult;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 /**
  * Created by tretiakoff on 04/07/2018.

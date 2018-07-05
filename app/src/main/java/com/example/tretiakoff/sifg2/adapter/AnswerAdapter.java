@@ -5,14 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
-import com.example.tretiakoff.sifg2.api.model.Answer;
-import com.squareup.picasso.Picasso;
+import com.example.tretiakoff.sifg2.api.model.chat.Answer;
 
 import java.util.ArrayList;
 

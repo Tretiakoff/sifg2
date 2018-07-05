@@ -4,17 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
@@ -22,13 +18,12 @@ import com.example.tretiakoff.sifg2.adapter.AnswerAdapter;
 import com.example.tretiakoff.sifg2.adapter.MessageListAdapter;
 import com.example.tretiakoff.sifg2.api.client.Client;
 import com.example.tretiakoff.sifg2.api.client.Sifg2;
-import com.example.tretiakoff.sifg2.api.model.Answer;
-import com.example.tretiakoff.sifg2.api.model.ChatResult;
-import com.example.tretiakoff.sifg2.api.model.Pathology;
+import com.example.tretiakoff.sifg2.api.model.chat.Answer;
+import com.example.tretiakoff.sifg2.api.model.chat.ChatResult;
+import com.example.tretiakoff.sifg2.api.model.chat.Pathology;
 import com.example.tretiakoff.sifg2.model.Message;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -129,6 +124,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
 
         }
         else if (answer.getText().equals(getResources().getString(R.string.callEmergency))) {
+            Log.d("JE PASSE", "ICI");
             call();
 
         }
@@ -219,10 +215,16 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     }
 
     private void call() {
+        Log.d("CALLING", "NOW");
         if (ActivityCompat.checkSelfPermission(MessageListActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:" + 112));
-            startActivity(callIntent);
+            try {
+                String phone = "112";
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                startActivity(intent);
+            } catch (Exception e) {
+                Log.d("EXCEPTION", e.getMessage());
+            }
+
         } else {
             Log.d("ERROR", "CALLLING");
         }
