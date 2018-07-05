@@ -37,7 +37,7 @@
         android:id="@+id/textView6"
         android:layout_width="246dp"
         android:layout_height="0dp"
-        android:text="@string/entries_title"
+        android:text="@string/entries_reason"
         android:textColor="@color/color_outer_space"
         android:textSize="20sp"
         android:typeface="monospace"
@@ -52,6 +52,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="24dp"
         android:visibility="visible"
+        android:scrollbars="none"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -197,7 +199,7 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="130dp"
+                android:layout_width="131dp"
                 android:layout_height="0dp"
                 android:elevation="5dp"
                 android:paddingTop="10dp"
@@ -221,7 +223,7 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="120dp"
+                android:layout_width="121dp"
                 android:layout_height="0dp"
                 android:elevation="5dp"
                 android:paddingTop="10dp"

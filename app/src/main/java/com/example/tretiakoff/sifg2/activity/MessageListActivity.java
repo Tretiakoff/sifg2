@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
@@ -147,11 +146,11 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         }
         if (nextId == null) {
             Pathology pathology = answer.getPathology();
-            Message receivedMessage = new Message(pathology.getLabel(), true);
+            Message receivedMessage = new Message(getResources().getString(R.string.pathologyFoundMsg) + pathology.getLabel(), true);
             messages.add(receivedMessage);
-            Message pathologyAfyer = new Message(getResources().getString(R.string.pathologyAfterMsg), true);
+            Message pathologyAfter = new Message(getResources().getString(R.string.pathologyAfterMsg), true);
             Message contactDoctorMsg = new Message(getResources().getString(R.string.contactDoctorMsg), true);
-            messages.add(pathologyAfyer);
+            messages.add(pathologyAfter);
             messages.add(contactDoctorMsg);
             mMessageAdapter.notifyDataSetChanged();
             mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());

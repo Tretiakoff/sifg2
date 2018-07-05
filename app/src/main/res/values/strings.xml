@@ -9,7 +9,8 @@
     <string name="followedBtn">Suivi de traitement</string>
     <string name="getSpecialistBtn">Trouver un spécialiste</string>
     <string name="helloMsg">Bonjour, je vais vous aider à pré-identifier votre problème, cela facilitera le travail du médecin lors de votre consultation</string>
-    <string name="pathologyAfterMsg">Maintenant que nous avons pré-identifié votre pathologie, passons à la prise de consultation avec un médecin.</string>
+    <string name="pathologyFoundMsg">Grâce à vos réponses, nous vous avons pré-identifié la pathologie :\u0020</string>
+    <string name="pathologyAfterMsg">Maintenant que nous avons déterminé de quelle pathologie vous pourriez être atteint, passons à la prise de consultation avec un médecin.</string>
     <string name="emergencyMsg">APPELLEZ LES URGENCES</string>
     <string name="contactDoctorMsg">Qui souhaitez-vous consulter?</string>
     <string name="personnalDoctor">Mon Médecin</string>
@@ -18,8 +19,8 @@
     <string name="welcome">hiji, la consultation simplifiée</string>
     <string name="phoneNumber">Saisissez votre numéro de téléphone</string>
     <string name="homeInfo">Cette application n’est pas une application d’urgences</string>
-    <string name="entries_title"> Pourquoi consultez-vous aujourd\'hui ?</string>
     <string name="entries_welcome">Bienvenue Florent,</string>
+    <string name="entries_reason">Pourquoi consultez-vous aujourd\'hui ?</string>
     <string name="entries_probleme">J’ai un problème</string>
     <string name="entries_checkup">Faire un checkup santé</string>
     <string name="entries_renouvellement">Renouveller une ordonnance</string>
