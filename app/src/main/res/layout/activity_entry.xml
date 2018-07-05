@@ -47,12 +47,13 @@
 
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="386dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="24dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -68,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
-                android:background="@color/color_cerise"
+                android:background="@drawable/cerise_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
@@ -88,7 +89,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@color/color_java_2"
+                android:background="@drawable/java2_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
@@ -107,7 +108,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@color/color_sundy_brown"
+                android:background="@drawable/sundy_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
@@ -127,7 +128,7 @@
                 android:id="@+id/besoin_Btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/color_bright_sun"
+                android:background="@drawable/sun_border"
                 android:contentDescription="@string/entries_specialiste"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
@@ -148,7 +149,7 @@
                 android:layout_width="379dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@color/color_java"
+                android:background="@drawable/java_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
@@ -264,7 +265,115 @@
                 app:layout_constraintBottom_toBottomOf="@+id/besoin_Btn"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <android.support.design.widget.BottomNavigationView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                tools:layout_editor_absoluteX="168dp"
+                tools:layout_editor_absoluteY="362dp" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/cardview_light_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_light_background"
+                android:paddingTop="30dp"
+                android:text="Documents"
+                android:stateListAnimator="@null"
+                android:textAllCaps="false"
+                app:layout_constraintBaseline_toBaselineOf="@+id/button14"
+                app:layout_constraintEnd_toStartOf="@+id/button14"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/background_light"
+                android:paddingTop="30dp"
+                android:text="Consulstation"
+                android:stateListAnimator="@null"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toStartOf="@+id/button12"
+                app:layout_constraintStart_toEndOf="@+id/button13" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_light_background"
+                android:paddingTop="30dp"
+                android:text="Profil"
+                android:stateListAnimator="@null"
+                android:textAllCaps="false"
+                app:layout_constraintBaseline_toBaselineOf="@+id/button14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button14" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="14dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:src="@drawable/user"
+                app:layout_constraintEnd_toEndOf="@+id/button12"
+                app:layout_constraintHorizontal_bias="0.551"
+                app:layout_constraintStart_toStartOf="@+id/button12"
+                app:layout_constraintTop_toTopOf="@+id/button12" />
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="@+id/button14"
+                app:layout_constraintStart_toStartOf="@+id/button14"
+                app:layout_constraintTop_toTopOf="@+id/button14" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="14dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:elevation="5dp"
+                android:src="@drawable/document"
+                app:layout_constraintEnd_toEndOf="@+id/button13"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintStart_toStartOf="@+id/button13"
+                app:layout_constraintTop_toTopOf="@+id/button13" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.BottomNavigationView>
 
 </android.support.constraint.ConstraintLayout>
