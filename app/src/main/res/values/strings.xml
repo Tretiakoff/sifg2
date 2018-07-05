@@ -28,5 +28,7 @@
     <string name="entries_specialiste">J’ai besoin d’un spécialiste</string>
     <string name="default_doctor_first_name">Marie</string>
     <string name="default_doctor_last_name">Fournier</string>
-    <string name="default_doctor_speciality">Médecin Géneraliste</string>
+    <string name="default_doctor_speciality">Médecin Généraliste</string>
+    <string name="error_doctor_not_found_title">Patience …</string>
+    <string name="error_doctor_not_found_text">Aucun docteur ne traite cette pathologie pour le moment.</string>
 </resources>
