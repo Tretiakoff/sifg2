@@ -1,5 +1,6 @@
 package com.example.tretiakoff.sifg2.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -93,6 +94,11 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
 
     @Override
     public void onBtnClick(Doctor doctor) {
-        Log.d("CLICKED", "TRUE");
+        Intent doctorActivity = new Intent(DoctorListActivity.this, DoctorActivity.class);
+        Bundle b = new Bundle();
+        b.putString("firstName", doctor.getFirstname());
+        b.putString("lastName", doctor.getLastname());
+        doctorActivity.putExtras(b);
+        startActivity(doctorActivity);
     }
 }

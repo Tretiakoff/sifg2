@@ -119,7 +119,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
        else if (answer.getText().equals(getResources().getString(R.string.otherDoctor))) {
             Intent doctorListIntent = new Intent(MessageListActivity.this, DoctorListActivity.class);
             Bundle b = new Bundle();
-            b.putInt("pathologyId", answer.getPathology().getId());
+            b.putInt("pathologyId", 2);
             doctorListIntent.putExtras(b);
             startActivity(doctorListIntent);
             return;

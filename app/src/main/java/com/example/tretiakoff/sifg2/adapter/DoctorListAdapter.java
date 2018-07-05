@@ -29,20 +29,6 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         this.mOnBtnClickListener = mOnBtnClickListener;
     }
 
-    public static class DoctorViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView name;
-        private TextView speciality;
-        RelativeLayout btnContainer;
-
-        DoctorViewHolder(View doctorViewItemLayout) {
-            super(doctorViewItemLayout);
-            btnContainer = (RelativeLayout) doctorViewItemLayout;
-            name = doctorViewItemLayout.findViewById(R.id.doctor_name);
-            speciality = doctorViewItemLayout.findViewById(R.id.doctor_speciality);
-        }
-    }
-
     @Override
     public DoctorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View topRatedRl = topRatedInflater.from(parent.getContext()).inflate(R.layout.item_doctor, parent, false);
@@ -83,5 +69,19 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
 
     public interface OnBtnClickListener {
         void onBtnClick(Doctor doctor);
+    }
+
+    public static class DoctorViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView name;
+        private TextView speciality;
+        RelativeLayout btnContainer;
+
+        DoctorViewHolder(View doctorViewItemLayout) {
+            super(doctorViewItemLayout);
+            btnContainer = (RelativeLayout) doctorViewItemLayout;
+            name = doctorViewItemLayout.findViewById(R.id.doctor_name);
+            speciality = doctorViewItemLayout.findViewById(R.id.doctor_speciality);
+        }
     }
 }

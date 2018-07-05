@@ -27,18 +27,6 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
         this.mOnBtnClickListener = mOnBtnClickListener;
     }
 
-    public static class AnswerViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView cover;
-        RelativeLayout btnContainer;
-
-        AnswerViewHolder(View btnViewItemLayout) {
-            super(btnViewItemLayout);
-            btnContainer = (RelativeLayout) btnViewItemLayout;
-            cover = btnViewItemLayout.findViewById(R.id.answerBtn);
-        }
-    }
-
     @Override
     public AnswerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View topRatedRl = topRatedInflater.from(parent.getContext()).inflate(R.layout.item_btn, parent, false);
@@ -49,7 +37,6 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
     public void onBindViewHolder(AnswerViewHolder holder, final int position) {
 
         final Answer mAnswer = mAnswerList.get(position);
-        Log.d("COUCOU", mAnswer.getText());
         holder.cover.setText(mAnswer.getText());
 
 
@@ -74,5 +61,17 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
 
     public interface OnBtnClickListener {
         void onBtnClick(Answer answer);
+    }
+
+    public static class AnswerViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView cover;
+        RelativeLayout btnContainer;
+
+        AnswerViewHolder(View btnViewItemLayout) {
+            super(btnViewItemLayout);
+            btnContainer = (RelativeLayout) btnViewItemLayout;
+            cover = btnViewItemLayout.findViewById(R.id.answerBtn);
+        }
     }
 }

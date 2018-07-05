@@ -33,7 +33,6 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         return mMessageList.size();
     }
 
-    // Determines the appropriate ViewType according to the sender of the message.
     @Override
     public int getItemViewType(int position) {
         Message message = mMessageList.get(position);
@@ -45,7 +44,6 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         }
     }
 
-    // Inflates the appropriate layout according to the ViewType.
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
@@ -63,7 +61,6 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         return null;
     }
 
-    // Passes the message object to a ViewHolder so that the contents can be bound to UI.
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Message message = mMessageList.get(position);
