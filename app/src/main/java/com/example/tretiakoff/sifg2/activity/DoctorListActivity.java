@@ -63,7 +63,6 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
         jsonParams.put("longitude", 2.4205839999999625);
 
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),(new JSONObject(jsonParams)).toString());
-        Log.d("BODY", body.toString());
         retrofit2.Call call = service.getDoctors(pathologyId, body);
         call.enqueue(new Callback<DoctorResult>() {
             @Override

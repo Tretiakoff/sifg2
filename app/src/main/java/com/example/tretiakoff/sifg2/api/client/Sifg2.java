@@ -1,5 +1,6 @@
 package com.example.tretiakoff.sifg2.api.client;
 
+import com.example.tretiakoff.sifg2.api.model.PathologyResult;
 import com.example.tretiakoff.sifg2.api.model.chat.ChatResult;
 import com.example.tretiakoff.sifg2.api.model.doctor.DoctorResult;
 
@@ -24,6 +25,9 @@ public interface Sifg2 {
 
     @GET("questions/start")
     Call<ChatResult> getFirstQuestion();
+
+    @GET("pathologies/list")
+    Call<PathologyResult> getPathologies();
 
     @POST("specialized-doctors/match/{pathology_id}")
     Call<DoctorResult> getDoctors(@Path("pathology_id") int id, @Body RequestBody body);
