@@ -76,10 +76,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="16dp"
-                android:fontFamily="@font/muli_bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:fontFamily="@font/muli_bold"></Button>
+
 
             <ImageView
                 android:id="@+id/imageView5"

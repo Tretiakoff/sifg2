@@ -36,8 +36,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     private RecyclerView mBtnRecycler;
     private AnswerAdapter answerAdapter;
     private TextView message;
-    private Button sendMsgBtn;
-    private TextView textInput;
     private ArrayList<Message> messages = new ArrayList<>();
     private ArrayList<Answer> answers = new ArrayList<>();
     private Boolean firstAnswer;
@@ -50,9 +48,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
-
-        sendMsgBtn = findViewById(R.id.button_chatbox_send);
-        textInput = findViewById(R.id.edittext_chatbox);
 
         mMessageRecycler = findViewById(R.id.message_list_view);
         mMessageAdapter = new MessageListAdapter(MessageListActivity.this, messages);
