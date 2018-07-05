@@ -112,9 +112,13 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     public void onBtnClick(Answer answer) {
 
         if (answer.getText().equals(getResources().getString(R.string.personnalDoctor))) {
-            Intent personnalDoctorIntent = new Intent(MessageListActivity.this, PersonnalDoctorActivity.class);
-            startActivity(personnalDoctorIntent);
-
+            Intent doctorActivity = new Intent(MessageListActivity.this, DoctorActivity.class);
+            Bundle b = new Bundle();
+            b.putString("firstName", "Marie");
+            b.putString("lastName", "Fournier");
+            b.putString("speciality", "Médecin Géneraliste");
+            doctorActivity.putExtras(b);
+            startActivity(doctorActivity);
         }
        else if (answer.getText().equals(getResources().getString(R.string.otherDoctor))) {
             Intent doctorListIntent = new Intent(MessageListActivity.this, DoctorListActivity.class);
@@ -136,7 +140,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         nextId = answer.getNext_question_id();
 
         if (answer.getEmergency()) {
-            //REMOVE BTN show urgences num + button call
             answers.clear();
             Message receivedMessage = new Message(getResources().getString(R.string.emergencyMsg), true);
             messages.add(receivedMessage);
@@ -148,10 +151,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
             return;
         }
         if (nextId == null) {
-            //NEXT QUESTION : do you want to add some precision
-            //NON -> Remove Btn
-            //OUI -> REMOVE BTN + SHOW KEYBOARD TO ADD A COMMENT
-            //CALLBACK when send pressed : your comment will be seen by a specialist
             Pathology pathology = answer.getPathology();
             Message receivedMessage = new Message(pathology.getLabel(), true);
             messages.add(receivedMessage);

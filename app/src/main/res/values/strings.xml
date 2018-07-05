@@ -25,4 +25,7 @@
     <string name="entries_renouvellement">Renouveller une ordonnance</string>
     <string name="entries_suivi">Faire un suivi de traitement</string>
     <string name="entries_specialiste">J’ai besoin d’un spécialiste</string>
+    <string name="default_doctor_first_name">Marie</string>
+    <string name="default_doctor_last_name">Fournier</string>
+    <string name="default_doctor_speciality">Médecin Géneraliste</string>
 </resources>

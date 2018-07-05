@@ -30,7 +30,6 @@
 
         <activity android:name=".activity.PathologyActivity"></activity>
         <activity android:name=".activity.MessageListActivity" />
-        <activity android:name=".activity.PersonnalDoctorActivity" />
         <activity android:name=".activity.EntryActivity" />
         <activity android:name=".activity.DoctorListActivity" />
 

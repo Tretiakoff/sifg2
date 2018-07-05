@@ -98,6 +98,7 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
         Bundle b = new Bundle();
         b.putString("firstName", doctor.getFirstname());
         b.putString("lastName", doctor.getLastname());
+        b.putString("speciality", doctor.getSpecialty().getLabel());
         doctorActivity.putExtras(b);
         startActivity(doctorActivity);
     }
