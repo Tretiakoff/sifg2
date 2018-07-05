@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
 import com.example.tretiakoff.sifg2.adapter.AnswerAdapter;
@@ -38,10 +39,12 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
     private RecyclerView mDoctorRecyclerView;
     private DoctorListAdapter doctorAdapter;
     private ArrayList<Doctor> doctors;
+    private TextView noDoctorMsg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_list);
+        noDoctorMsg = findViewById(R.id.doctor_name);
 
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(DoctorListActivity.this);
@@ -77,7 +80,11 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
                         doctorAdapter.notifyDataSetChanged();
                     }
 
-                } else {
+                }
+                else if (response.code() == 204) {
+                    noDoctorMsg.setText("NO DOCTOR");
+
+                }else {
                     Log.e("RESPONSE", "NOT DEUX CENT");
                     return;
                 }
