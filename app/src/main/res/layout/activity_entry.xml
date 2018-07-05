@@ -37,10 +37,10 @@
         android:id="@+id/textView6"
         android:layout_width="246dp"
         android:layout_height="0dp"
-        android:lineSpacingExtra="0sp"
         android:text="@string/entries_title"
         android:textColor="@color/color_outer_space"
         android:textSize="20sp"
+        android:typeface="monospace"
         app:fontFamily="@font/muli_bold"
         app:layout_constraintStart_toStartOf="@+id/entry_title"
         app:layout_constraintTop_toBottomOf="@+id/entry_title" />
@@ -48,7 +48,6 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="24dp"
@@ -65,7 +64,7 @@
 
             <Button
                 android:id="@+id/problem_Btn"
-                android:layout_width="0dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
@@ -73,11 +72,13 @@
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
+                android:paddingRight="130dp"
                 android:paddingTop="38dp"
                 android:text="@string/entries_probleme"
                 android:textAllCaps="false"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="16dp"
+                android:stateListAnimator="@null"
                 app:fontFamily="@font/muli_bold"
                 app:layout_constraintBottom_toTopOf="@+id/checkup_Btn"
                 app:layout_constraintEnd_toEndOf="@+id/checkup_Btn"
@@ -86,18 +87,20 @@
 
             <Button
                 android:id="@+id/checkup_Btn"
-                android:layout_width="0dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/java2_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
+                android:paddingRight="130dp"
                 android:paddingTop="38dp"
                 android:text="@string/entries_checkup"
                 android:textAllCaps="false"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="16dp"
+                android:stateListAnimator="@null"
                 app:fontFamily="@font/muli_bold"
                 app:layout_constraintBottom_toTopOf="@+id/renouvellement_Btn"
                 app:layout_constraintEnd_toEndOf="@+id/renouvellement_Btn"
@@ -105,171 +108,128 @@
 
             <Button
                 android:id="@+id/renouvellement_Btn"
-                android:layout_width="0dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/sundy_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
+                android:paddingRight="130dp"
                 android:paddingTop="38dp"
-                android:text="Button"
+                android:text="@string/entries_renouvellement"
                 android:textAllCaps="false"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="16dp"
+                android:stateListAnimator="@null"
                 app:fontFamily="@font/muli_bold"
                 app:layout_constraintBottom_toTopOf="@+id/suivi_Btn"
                 app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/suivi_Btn"
-                tools:text="@string/entries_renouvellement" />
-
-            <Button
-                android:id="@+id/besoin_Btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sun_border"
-                android:contentDescription="@string/entries_specialiste"
-                android:gravity="center_vertical"
-                android:paddingBottom="38dp"
-                android:paddingLeft="24dp"
-                android:paddingTop="38dp"
-                android:text="@string/entries_specialiste"
-                android:textAllCaps="false"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="16dp"
-                app:fontFamily="@font/muli_bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/suivi_Btn" />
 
             <Button
                 android:id="@+id/suivi_Btn"
-                android:layout_width="379dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/java_border"
                 android:gravity="center_vertical"
                 android:paddingBottom="38dp"
                 android:paddingLeft="24dp"
+                android:paddingRight="130dp"
                 android:paddingTop="38dp"
-                android:text="Button"
+                android:text="@string/entries_suivi"
                 android:textAllCaps="false"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="16dp"
+                android:stateListAnimator="@null"
                 app:fontFamily="@font/muli_bold"
                 app:layout_constraintBottom_toTopOf="@+id/besoin_Btn"
-                tools:layout_editor_absoluteX="0dp"
-                tools:text="@string/entries_suivi" />
+                app:layout_constraintEnd_toEndOf="@+id/besoin_Btn"
+                app:layout_constraintStart_toStartOf="@+id/besoin_Btn" />
+
+            <Button
+                android:id="@+id/besoin_Btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sun_border"
+                android:contentDescription="@string/entries_specialiste"
+                android:gravity="center_vertical"
+                android:paddingBottom="38dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="130dp"
+                android:paddingTop="38dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/entries_specialiste"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16dp"
+                android:stateListAnimator="@null"
+                app:fontFamily="@font/muli_bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/suivi_Btn" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_width="123dp"
+                android:layout_height="0dp"
                 android:elevation="5dp"
-                android:src="@drawable/probleme"
+                android:paddingTop="10dp"
+                android:src="@drawable/illu2"
                 app:layout_constraintBottom_toBottomOf="@+id/problem_Btn"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/problem_Btn"
+                app:layout_constraintTop_toTopOf="@+id/problem_Btn"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_width="116dp"
+                android:layout_height="0dp"
                 android:elevation="5dp"
-                android:src="@drawable/checkup"
+                android:paddingTop="10dp"
+                android:src="@drawable/illu3"
                 app:layout_constraintBottom_toBottomOf="@+id/checkup_Btn"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/checkup_Btn"
+                app:layout_constraintTop_toTopOf="@+id/checkup_Btn"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_width="130dp"
+                android:layout_height="0dp"
                 android:elevation="5dp"
-                android:src="@drawable/renouvellement"
+                android:paddingTop="10dp"
+                android:src="@drawable/illu4"
                 app:layout_constraintBottom_toBottomOf="@+id/renouvellement_Btn"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:elevation="5dp"
-                android:src="@drawable/suivi"
-                app:layout_constraintBottom_toBottomOf="@+id/suivi_Btn"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/renouvellement_Btn"
+                app:layout_constraintTop_toTopOf="@+id/renouvellement_Btn"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:elevation="5dp"
-                android:src="@drawable/specialiste"
-                app:layout_constraintBottom_toBottomOf="@+id/besoin_Btn"
-                app:layout_constraintEnd_toEndOf="@+id/besoin_Btn" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="142dp"
-                android:layout_height="66dp"
-                android:elevation="4dp"
-                android:src="@drawable/shape_probleme"
-                app:layout_constraintBottom_toBottomOf="@+id/problem_Btn"
-                app:layout_constraintEnd_toEndOf="@+id/problem_Btn" />
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="128dp"
-                android:layout_height="0dp"
-                android:elevation="4dp"
-                android:src="@drawable/shape_checkup"
-                app:layout_constraintBottom_toBottomOf="@+id/checkup_Btn"
-                app:layout_constraintEnd_toEndOf="@+id/checkup_Btn"
-                app:layout_constraintTop_toTopOf="@+id/checkup_Btn" />
-
-            <ImageView
-                android:id="@+id/imageView12"
                 android:layout_width="120dp"
-                android:layout_height="71dp"
-                android:elevation="4dp"
-                android:src="@drawable/shape_renouvellement"
-                app:layout_constraintBottom_toBottomOf="@+id/renouvellement_Btn"
-                app:layout_constraintEnd_toEndOf="@+id/renouvellement_Btn" />
-
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="113dp"
-                android:layout_height="74dp"
-                android:elevation="4dp"
-                android:src="@drawable/shape_suivi"
+                android:layout_height="0dp"
+                android:elevation="5dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/illu6"
                 app:layout_constraintBottom_toBottomOf="@+id/suivi_Btn"
-                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn" />
+                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
+                app:layout_constraintTop_toTopOf="@+id/suivi_Btn"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="113dp"
-                android:layout_height="78dp"
-                android:elevation="4dp"
-                android:src="@drawable/shape_specialiste"
+                android:id="@+id/imageView8"
+                android:layout_width="120dp"
+                android:layout_height="0dp"
+                android:elevation="5dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/illu5"
                 app:layout_constraintBottom_toBottomOf="@+id/besoin_Btn"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <android.support.design.widget.BottomNavigationView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                tools:layout_editor_absoluteX="168dp"
-                tools:layout_editor_absoluteY="362dp" />
+                app:layout_constraintEnd_toEndOf="@+id/besoin_Btn"
+                app:layout_constraintTop_toTopOf="@+id/besoin_Btn"
+                app:layout_constraintVertical_bias="0.0" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
@@ -297,9 +257,11 @@
                 android:text="Documents"
                 android:stateListAnimator="@null"
                 android:textAllCaps="false"
+                android:textColor="@color/color_title"
                 app:layout_constraintBaseline_toBaselineOf="@+id/button14"
                 app:layout_constraintEnd_toStartOf="@+id/button14"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:fontFamily="@font/muli_bold" />
 
             <Button
                 android:id="@+id/button14"
@@ -307,11 +269,13 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/background_light"
                 android:paddingTop="30dp"
-                android:text="Consulstation"
+                android:text="Consultation"
                 android:stateListAnimator="@null"
                 android:textAllCaps="false"
+                android:textColor="@color/color_east_bay"
                 app:layout_constraintEnd_toStartOf="@+id/button12"
-                app:layout_constraintStart_toEndOf="@+id/button13" />
+                app:layout_constraintStart_toEndOf="@+id/button13"
+                app:fontFamily="@font/muli_bold" />
 
             <Button
                 android:id="@+id/button12"
@@ -322,9 +286,11 @@
                 android:text="Profil"
                 android:stateListAnimator="@null"
                 android:textAllCaps="false"
+                android:textColor="@color/color_title"
                 app:layout_constraintBaseline_toBaselineOf="@+id/button14"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/button14" />
+                app:layout_constraintStart_toEndOf="@+id/button14"
+                app:fontFamily="@font/muli_bold" />
 
             <ImageView
                 android:id="@+id/imageView17"

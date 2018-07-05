@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sifg2</string>
+    <string name="app_name">Hiji</string>
     <string name="pathologyBtn">J\'ai un problème</string>
     <string name="chatBtn">Identifiez votre problème en discutant avec Hiji</string>
     <string name="headerProblem">Quel est votre problème ?</string>
@@ -18,7 +18,7 @@
     <string name="welcome">hiji, la consultation simplifiée</string>
     <string name="phoneNumber">Saisissez votre numéro de téléphone</string>
     <string name="homeInfo">Cette application n’est pas une application d’urgences</string>
-    <string name="entries_title"> Pourquoi consultez-vous aujourd’hui ?</string>
+    <string name="entries_title"> Pourquoi consultez-vous aujourd\'hui ?</string>
     <string name="entries_welcome">Bienvenue Florent,</string>
     <string name="entries_probleme">J’ai un problème</string>
     <string name="entries_checkup">Faire un checkup santé</string>
