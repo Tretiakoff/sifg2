@@ -28,7 +28,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activity.PathologyActivity"></activity>
+        <activity android:name=".activity.PathologyActivity" />
         <activity android:name=".activity.MessageListActivity" />
         <activity android:name=".activity.EntryActivity" />
         <activity android:name=".activity.DoctorListActivity" />
@@ -37,7 +37,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activity.DoctorActivity"></activity>
+        <activity android:name=".activity.DoctorActivity" />
+        <activity android:name=".activity.single_doctorActivity"></activity>
     </application>
 
 </manifest>
