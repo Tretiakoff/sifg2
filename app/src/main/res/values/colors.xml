@@ -12,6 +12,7 @@
     <color name="color_east_bay">#485589</color>
     <color name="color_outer_space">#2e353f</color>
     <color name="color_athens_gray">#F4F5F7</color>
+    <color name="color_input_border">#ECE9E9</color>
     <color name="color_input">#bdc2d9</color>
     <color name="color_input_content">#979797</color>
     <color name="color_title">#bec2d9</color>
