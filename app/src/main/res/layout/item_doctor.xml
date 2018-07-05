@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/doctor_name"
-            android:layout_width="178dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/image_doctor"
             android:layout_centerHorizontal="true"
