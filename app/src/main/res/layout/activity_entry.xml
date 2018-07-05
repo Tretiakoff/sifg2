@@ -218,6 +218,52 @@
                 app:layout_constraintBottom_toBottomOf="@+id/besoin_Btn"
                 app:layout_constraintEnd_toEndOf="@+id/besoin_Btn" />
 
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="142dp"
+                android:layout_height="66dp"
+                android:elevation="4dp"
+                android:src="@drawable/shape_probleme"
+                app:layout_constraintBottom_toBottomOf="@+id/problem_Btn"
+                app:layout_constraintEnd_toEndOf="@+id/problem_Btn" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="128dp"
+                android:layout_height="0dp"
+                android:elevation="4dp"
+                android:src="@drawable/shape_checkup"
+                app:layout_constraintBottom_toBottomOf="@+id/checkup_Btn"
+                app:layout_constraintEnd_toEndOf="@+id/checkup_Btn"
+                app:layout_constraintTop_toTopOf="@+id/checkup_Btn" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="120dp"
+                android:layout_height="71dp"
+                android:elevation="4dp"
+                android:src="@drawable/shape_renouvellement"
+                app:layout_constraintBottom_toBottomOf="@+id/renouvellement_Btn"
+                app:layout_constraintEnd_toEndOf="@+id/renouvellement_Btn" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="113dp"
+                android:layout_height="74dp"
+                android:elevation="4dp"
+                android:src="@drawable/shape_suivi"
+                app:layout_constraintBottom_toBottomOf="@+id/suivi_Btn"
+                app:layout_constraintEnd_toEndOf="@+id/suivi_Btn" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="113dp"
+                android:layout_height="78dp"
+                android:elevation="4dp"
+                android:src="@drawable/shape_specialiste"
+                app:layout_constraintBottom_toBottomOf="@+id/besoin_Btn"
+                app:layout_constraintEnd_toEndOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
