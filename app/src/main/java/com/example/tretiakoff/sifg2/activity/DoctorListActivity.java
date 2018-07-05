@@ -71,10 +71,11 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
                 if (response.code() == 200) {
                     Log.d("RESPONSE", "OK");
                     DoctorResult result = response.body();
-                    doctors = result.getSpecialized_doctors();
-                    Log.d("DOCTORS", doctors.get(0).getFirstname());
-                    doctorAdapter.setTopRatedList(doctors);
-                    doctorAdapter.notifyDataSetChanged();
+                    if (result != null) {
+                        doctors = result.getSpecialized_doctors();
+                        doctorAdapter.setTopRatedList(doctors);
+                        doctorAdapter.notifyDataSetChanged();
+                    }
 
                 } else {
                     Log.e("RESPONSE", "NOT DEUX CENT");
