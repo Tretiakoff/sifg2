@@ -211,11 +211,11 @@
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="120dp"
+                android:layout_width="121dp"
                 android:layout_height="0dp"
                 android:elevation="5dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/illu6"
+                android:src="@drawable/illu5"
                 app:layout_constraintBottom_toBottomOf="@+id/suivi_Btn"
                 app:layout_constraintEnd_toEndOf="@+id/suivi_Btn"
                 app:layout_constraintTop_toTopOf="@+id/suivi_Btn"
@@ -223,11 +223,11 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="121dp"
+                android:layout_width="120dp"
                 android:layout_height="0dp"
                 android:elevation="5dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/illu5"
+                android:src="@drawable/illu6"
                 app:layout_constraintBottom_toBottomOf="@+id/besoin_Btn"
                 app:layout_constraintEnd_toEndOf="@+id/besoin_Btn"
                 app:layout_constraintTop_toTopOf="@+id/besoin_Btn"
