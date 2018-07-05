@@ -1,7 +1,11 @@
 package com.example.tretiakoff.sifg2.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -113,33 +117,63 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     }
     @Override
     public void onBtnClick(Answer answer) {
+
+        if (answer.getText().equals(getResources().getString(R.string.personnalDoctor))) {
+            Intent personnalDoctorIntent = new Intent(MessageListActivity.this, PersonnalDoctorActivity.class);
+            startActivity(personnalDoctorIntent);
+
+        }
+       else if (answer.getText().equals(getResources().getString(R.string.otherDoctor))) {
+            Intent doctorListIntent = new Intent(MessageListActivity.this, DoctorListActivity.class);
+            startActivity(doctorListIntent);
+
+        }
+        else if (answer.getText().equals(getResources().getString(R.string.callEmergency))) {
+            call();
+
+        }
         sentMessage = answer.getText();
+        Message sentMsg = new Message(sentMessage, false);
+        messages.add(sentMsg);
+        mMessageAdapter.notifyDataSetChanged();
         Log.d("ANSWER", answer.getText());
 
         nextId = answer.getNext_question_id();
 
         if (answer.getEmergency()) {
+            //REMOVE BTN show urgences num + button call
+            answers.clear();
             Message receivedMessage = new Message(getResources().getString(R.string.emergencyMsg), true);
             messages.add(receivedMessage);
             mMessageAdapter.notifyDataSetChanged();
             mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
+            Answer callEmergency = new Answer(0, getResources().getString(R.string.callEmergency), false, 0, null );
+            answers.add(callEmergency);
+            answerAdapter.notifyDataSetChanged();
             return;
         }
         if (nextId == null) {
+            //NEXT QUESTION : do you want to add some precision
+            //NON -> Remove Btn
+            //OUI -> REMOVE BTN + SHOW KEYBOARD TO ADD A COMMENT
+            //CALLBACK when send pressed : your comment will be seen by a specialist
             Pathology pathology = answer.getPathology();
             Message receivedMessage = new Message(pathology.getLabel(), true);
             messages.add(receivedMessage);
             Message pathologyAfyer = new Message(getResources().getString(R.string.pathologyAfterMsg), true);
+            Message contactDoctorMsg = new Message(getResources().getString(R.string.contactDoctorMsg), true);
             messages.add(pathologyAfyer);
+            messages.add(contactDoctorMsg);
             mMessageAdapter.notifyDataSetChanged();
             mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
+            Answer personnalDoctor = new Answer(0, getResources().getString(R.string.personnalDoctor), false, 0, null );
+            Answer otherDoctor = new Answer(0, getResources().getString(R.string.otherDoctor), false, 0, null );
+            answers.clear();
+            answers.add(personnalDoctor);
+            answers.add(otherDoctor);
+            answerAdapter.notifyDataSetChanged();
             return;
         }
-        final Message receivedMessage = new Message(sentMessage, false);
-        messages.add(receivedMessage);
-        mMessageAdapter.notifyDataSetChanged();
-        mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
-        Log.d("IDDDDD", String.valueOf(nextId));
         retrofit2.Call call = service.getQuestions(nextId);
         call.enqueue(new Callback<ChatResult>() {
             @Override
@@ -182,6 +216,16 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
         });
 
 
+    }
+
+    private void call() {
+        if (ActivityCompat.checkSelfPermission(MessageListActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + 112));
+            startActivity(callIntent);
+        } else {
+            Log.d("ERROR", "CALLLING");
+        }
     }
 
 }
