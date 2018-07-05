@@ -44,7 +44,6 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_list);
-        noDoctorMsg = findViewById(R.id.doctor_name);
 
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(DoctorListActivity.this);
@@ -70,8 +69,12 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
         call.enqueue(new Callback<DoctorResult>() {
             @Override
             public void onResponse(Call<DoctorResult> call, Response<DoctorResult> response) {
-                Log.d("RESPONSE", "CALLED");
-                if (response.code() == 200) {
+                if (response.code() == 204) {
+                    Log.d("WUY", "WUT");
+                Intent notFoundIntent = new Intent(DoctorListActivity.this, NotFoundActivity.class);
+                startActivity(notFoundIntent);
+                }
+               else if (response.code() == 200) {
                     Log.d("RESPONSE", "OK");
                     DoctorResult result = response.body();
                     if (result != null) {
@@ -80,11 +83,7 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
                         doctorAdapter.notifyDataSetChanged();
                     }
 
-                }
-                else if (response.code() == 204) {
-                    noDoctorMsg.setText("NO DOCTOR");
-
-                }else {
+                } else {
                     Log.e("RESPONSE", "NOT DEUX CENT");
                     return;
                 }

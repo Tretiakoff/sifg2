@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,25 +30,25 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-
         <activity
             android:name=".activity.PathologyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MessageListActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.EntryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.DoctorListActivity"
             android:screenOrientation="portrait" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activity.DoctorActivity"></activity>
+        <activity android:name=".activity.DoctorActivity" />
+        <activity android:name=".activity.NotFoundActivity"></activity>
     </application>
 
 </manifest>
