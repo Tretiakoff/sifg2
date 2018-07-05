@@ -17,7 +17,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activity.EntryActivity">
+        <activity android:name=".activity.PathologyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,6 +26,7 @@
         </activity>
         <activity android:name=".activity.ChatActivity" />
         <activity android:name=".activity.MessageListActivity"></activity>
+        <activity android:name=".activity.EntryActivity" />
     </application>
 
 </manifest>

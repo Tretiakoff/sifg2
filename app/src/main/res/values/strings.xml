@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">sifg2</string>
-    <string name="chatBtn">J\'ai un problème</string>
+    <string name="pathologyBtn">J\'ai un problème</string>
+    <string name="chatBtn">Identifiez votre problème en discutant avec Hiji</string>
+    <string name="headerProblem">Quel est votre problème ?</string>
+    <string name="searchBarPathologyText">Rechercher une pathologie</string>
     <string name="checkUpBtn">Checkup, certificat</string>
     <string name="newOrderBtn">Renouvellement d\'ordonnance</string>
     <string name="followedBtn">Suivi de traitement</string>
