@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
     android:paddingTop="8dp">
 
     <ImageView
         android:id="@+id/image_doctor"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="22dp"
         android:src="@drawable/placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/doctor_name"
-        android:layout_width="wrap_content"
+        android:layout_width="178dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="13dp"
-        android:layout_toStartOf="@+id/doctor_speciality"
-        android:text="Marie Fournier"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="111dp" />
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/muli_semibold"
+        android:text="Dr Marie Fournier"
+        android:textColor="@color/color_outer_space"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/image_doctor"
+        app:layout_constraintTop_toTopOf="@+id/image_doctor" />
 
 
     <TextView
         android:id="@+id/doctor_speciality"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="92dp"
-        android:text="Generaliste"
-        app:layout_constraintTop_toBottomOf="@+id/doctor_name"
-        tools:layout_editor_absoluteX="111dp" />
+        android:layout_width="178dp"
+        android:layout_height="23dp"
+        android:fontFamily="@font/muli_semibold"
+        android:text="Médecin généraliste"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_doctor"
+        app:layout_constraintStart_toStartOf="@+id/doctor_name" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
