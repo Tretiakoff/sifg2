@@ -119,8 +119,7 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
        else if (answer.getText().equals(getResources().getString(R.string.otherDoctor))) {
             Intent doctorListIntent = new Intent(MessageListActivity.this, DoctorListActivity.class);
             Bundle b = new Bundle();
-            Log.d("answerId", String.valueOf(answer.getId()));
-            b.putInt("pathologyId", 2);
+            b.putInt("pathologyId", answer.getPathology().getId());
             doctorListIntent.putExtras(b);
             startActivity(doctorListIntent);
             return;
@@ -162,8 +161,8 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
             messages.add(contactDoctorMsg);
             mMessageAdapter.notifyDataSetChanged();
             mMessageRecycler.smoothScrollToPosition(mMessageAdapter.getItemCount());
-            Answer personnalDoctor = new Answer(0, getResources().getString(R.string.personnalDoctor), false, 0, null );
-            Answer otherDoctor = new Answer(0, getResources().getString(R.string.otherDoctor), false, 0, null );
+            Answer personnalDoctor = new Answer(0, getResources().getString(R.string.personnalDoctor), false, 0, answer.getPathology());
+            Answer otherDoctor = new Answer(0, getResources().getString(R.string.otherDoctor), false, 0, answer.getPathology() );
             answers.clear();
             answers.add(personnalDoctor);
             answers.add(otherDoctor);
