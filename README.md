@@ -1,3 +1,4 @@
+<p align="center"><img src="https://www.sifg2.ml/img/logorounded.png" alt="Hiji logo" /></p>
 
 # Application Android Hiji
 
