@@ -60,7 +60,6 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
         messageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("CLICK", "CLICK");
                 Intent messageIntent = new Intent(DoctorListActivity.this, MessageListActivity.class);
                 startActivity(messageIntent);
             }
@@ -88,7 +87,6 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
                 startActivity(notFoundIntent);
                 }
                else if (response.code() == 200) {
-                    Log.d("RESPONSE", "OK");
                     DoctorResult result = response.body();
                     if (result != null) {
                         doctors = result.getSpecialized_doctors();
@@ -97,14 +95,12 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
                     }
 
                 } else {
-                    Log.e("RESPONSE", "NOT DEUX CENT");
                     return;
                 }
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
                 return;
             }
         });

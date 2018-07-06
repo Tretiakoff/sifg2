@@ -104,7 +104,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
                 return;
             }
         });
@@ -208,7 +207,6 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
                 return;
             }
         });
@@ -223,11 +221,10 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
                 startActivity(intent);
             } catch (Exception e) {
-                Log.d("EXCEPTION", e.getMessage());
             }
 
         } else {
-            Log.d("ERROR", "CALLLING");
+
         }
     }
 

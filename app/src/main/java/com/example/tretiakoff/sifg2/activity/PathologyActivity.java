@@ -73,13 +73,11 @@ public class PathologyActivity extends AppCompatActivity implements PathologyAda
             @Override
             public void onResponse(Call<PathologyResult> call, Response<PathologyResult> response) {
                 if (response.code() == 200) {
-                    Log.d("HITHERE", "HIII");
                     PathologyResult result = response.body();
                     if (result != null) {
                         pathologies = result.getPathologies();
                         pathologyAdapter.setTopRatedList(pathologies);
                         pathologyAdapter.notifyDataSetChanged();
-                        Log.d("COUNT", pathologies.toString());
                     }
 
                 } else {

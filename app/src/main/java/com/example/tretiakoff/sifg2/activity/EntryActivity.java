@@ -25,26 +25,6 @@ public class EntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
-
-
-//        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.LEFT | Gravity.CENTER_VERTICAL);
-//        View customNav = LayoutInflater.from(this).inflate(R.layout.action_bar, null); // layout which contains your button.
-//        bar.setCustomView(customNav, lp);
-//        bar.setDisplayHomeAsUpEnabled(true);
-
-
-//        ImageButton imageButton = (ImageButton) mCustomView
-//                .findViewById(R.id.imageButton);
-//        imageButton.setOnClickListener(new OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(), "Refresh Clicked!",
-//                        Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-//        getSupportActionBar().setCustomView(R.layout.action_bar);
         pathologyActivityBtn = findViewById(R.id.problem_Btn);
         pathologyActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
