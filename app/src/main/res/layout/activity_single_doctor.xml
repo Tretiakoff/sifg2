@@ -58,9 +58,9 @@
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textColor="@color/cardview_light_background"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button5"
             app:layout_constraintEnd_toStartOf="@+id/button5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="8dp" />
 
         <Button
             android:id="@+id/button5"
@@ -69,7 +69,7 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/dp5_orange_bg"
             android:fontFamily="@font/muli_semibold"
-            android:paddingLeft="60dp"
+            android:paddingLeft="80dp"
             android:text="Consultation vidéo"
             android:textAlignment="textStart"
             android:textAllCaps="false"
@@ -88,6 +88,8 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/white_bg"
             android:elevation="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/button4"
             app:layout_constraintStart_toStartOf="@+id/button4"
             app:layout_constraintTop_toTopOf="@+id/button4"
@@ -100,6 +102,8 @@
             android:layout_marginStart="16dp"
             android:background="@drawable/white_bg"
             android:elevation="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/button5"
             app:layout_constraintStart_toStartOf="@+id/button5"
             app:layout_constraintTop_toTopOf="@+id/button5"
@@ -121,11 +125,12 @@
         android:id="@+id/textView10"
         android:layout_width="378dp"
         android:layout_height="0dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/muli_semibold"
         android:text="Jeune médecin généraliste, diplomée de la faculté de médecine de Paris, je suis un médecin en phase avec mon temps. Avec mes patients, je suis à l’écoute et je sais faire preuve d’empathie."
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -164,6 +169,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:background="@drawable/text_border"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
         android:text="Médecin humain, à l’écoute de ses clients. Elle pose de très bons diagnostiques et apporte un suivi de qualité. Merci Dr Fournier. "
         app:layout_constraintEnd_toEndOf="@+id/textView10"
         app:layout_constraintStart_toStartOf="@+id/textView11"
@@ -295,5 +305,14 @@
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="@+id/textView16"
         app:srcCompat="@drawable/place" />
+
+    <ImageView
+        android:id="@+id/note"
+        android:layout_width="61dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:srcCompat="@drawable/note" />
 
 </android.support.constraint.ConstraintLayout>
