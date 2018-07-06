@@ -1,5 +1,6 @@
 package com.example.tretiakoff.sifg2.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,5 +12,12 @@ public class NotFoundActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_not_found);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent entryIntent = new Intent(NotFoundActivity.this, MessageListActivity.class);
+        startActivity(entryIntent);
+        super.onBackPressed();
     }
 }

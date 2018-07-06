@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.tretiakoff.sifg2.R;
 import com.example.tretiakoff.sifg2.adapter.DoctorListAdapter;
@@ -32,6 +33,7 @@ public class PathologyActivity extends AppCompatActivity implements PathologyAda
     private PathologyAdapter pathologyAdapter;
     private ArrayList<Pathology> pathologies;
     private Sifg2 service = Client.getClient();
+    private ImageButton headerBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,15 @@ public class PathologyActivity extends AppCompatActivity implements PathologyAda
         mPathologyRecycler.setAdapter(pathologyAdapter);
 
         chatViewBtn = findViewById(R.id.chatBtn);
+        headerBack = findViewById(R.id.action_bar_back);
+
+        headerBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent entryIntent = new Intent(PathologyActivity.this, EntryActivity.class);
+                startActivity(entryIntent);
+            }
+        });
 
         chatViewBtn.setOnClickListener(new View.OnClickListener() {
             @Override

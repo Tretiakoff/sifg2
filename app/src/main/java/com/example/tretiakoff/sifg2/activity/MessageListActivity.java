@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
@@ -42,11 +44,21 @@ public class MessageListActivity  extends AppCompatActivity implements AnswerAda
     private String sentMessage;
     private Integer nextId;
     Message receivedMessage;
+    private ImageButton backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_list);
+        backBtn = findViewById(R.id.action_bar_back_messageList);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent entryIntent = new Intent(MessageListActivity.this, PathologyActivity.class);
+                startActivity(entryIntent);
+            }
+        });
 
         mMessageRecycler = findViewById(R.id.message_list_view);
         mMessageAdapter = new MessageListAdapter(MessageListActivity.this, messages);

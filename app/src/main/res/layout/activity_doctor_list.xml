@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/action_bar_back"
+            android:id="@+id/action_bar_back_message"
             android:layout_width="18dp"
             android:layout_height="12dp"
             android:layout_gravity="center_vertical"

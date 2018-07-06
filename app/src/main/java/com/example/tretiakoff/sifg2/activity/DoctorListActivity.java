@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.tretiakoff.sifg2.R;
@@ -40,6 +42,7 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
     private DoctorListAdapter doctorAdapter;
     private ArrayList<Doctor> doctors;
     private TextView noDoctorMsg;
+    private ImageButton messageBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,17 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
         mDoctorRecyclerView = findViewById(R.id.doctor_list_view);
 
         doctorAdapter = new DoctorListAdapter(DoctorListActivity.this);
+
+        messageBack = findViewById(R.id.action_bar_back_message);
+
+        messageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("CLICK", "CLICK");
+                Intent messageIntent = new Intent(DoctorListActivity.this, MessageListActivity.class);
+                startActivity(messageIntent);
+            }
+        });
 
         mDoctorRecyclerView.setLayoutManager(layoutManager);
         mDoctorRecyclerView.setAdapter(doctorAdapter);
@@ -70,7 +84,6 @@ public class DoctorListActivity extends AppCompatActivity implements DoctorListA
             @Override
             public void onResponse(Call<DoctorResult> call, Response<DoctorResult> response) {
                 if (response.code() == 204) {
-                    Log.d("WUY", "WUT");
                 Intent notFoundIntent = new Intent(DoctorListActivity.this, NotFoundActivity.class);
                 startActivity(notFoundIntent);
                 }
